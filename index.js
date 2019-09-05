@@ -1,3 +1,4 @@
+
 ;(function(win) {
     function create(param){
         var isParamExist = (typeof param === 'object')
@@ -34,4 +35,7 @@
     }
     win.DocsifyPageloadScrollPlugin={}
     win.DocsifyPageloadScrollPlugin.create = create
+    if(typeof win.$docsify === 'object'){
+        win.$docsify.plugins = [].concat(create(), $docsify.plugins);
+    }
 })(window);
